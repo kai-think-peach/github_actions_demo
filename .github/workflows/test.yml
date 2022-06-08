@@ -19,7 +19,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: build hello.py
       run:
-        echo "执行hello.py"
         python hello.py
   job2:
     name: build hello.cpp
