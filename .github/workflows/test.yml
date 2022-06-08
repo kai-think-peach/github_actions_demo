@@ -15,6 +15,19 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2
+    - name: windows build
+      if: matrix.os=='windows-latest'
+      run: |
+        echo "github.workspace is ${{github.workspace}}"
+        ls ${{github.workspace}}
+        #cmake build
+        cd ${{github.workspace}}
+        ls 
+        mkdir build
+        cd build 
+        cmake --version
+        cmake -DCMAKE_INSTALL_PREFIX=${{github.workspace}}
+        ls
     - name: linux and mac build
       #多个条件判断需要使用${{}}
       if: ${{matrix.os=='ubuntu-latest' || matrix.os=='macos-latest'}}
@@ -23,9 +36,5 @@ jobs:
         make
         ./hello
         make clean
-    - name: windows build
-      if: matrix.os=='windows-latest'
-      run: |
-        echo "github.workspace is ${{github.workspace}}"
-        ls ${{github.workspace}}
+
     
