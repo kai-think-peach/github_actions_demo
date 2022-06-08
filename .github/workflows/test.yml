@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: github actions demo
 
 on:
   push:
@@ -8,8 +8,10 @@ on:
 
 jobs:
   build-and-test:
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest,macos-latest]
+    runs-on: ${{matrix.os}}
 
     steps:
     - uses: actions/checkout@v2
@@ -19,4 +21,3 @@ jobs:
       run: 
         ./hello
         make clean
-      
