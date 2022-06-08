@@ -11,23 +11,30 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest,ubuntu-latest,macos-latest]
+        python-version: [3.6,3.7]
     # matrix.os可作为变量使用
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2
-    - name: windows build
+    - name: windows build 
       if: matrix.os=='windows-latest'
       run: |
         make
         #cd ${{github.workspace}}
         #ls
+        echo "执行./hello.exe"
         ./hello.exe
+        echo "执行hello.py"
+        python hello.py
     - name: linux and mac build
       #多个条件判断需要使用${{}}
       if: ${{matrix.os=='ubuntu-latest' || matrix.os=='macos-latest'}}
       #d多条命令需要使用"|"
       run: |
         make
+        echo "执行./hello"
         ./hello
+        echo "执行hello.py"
+        python hello.py
 
     
