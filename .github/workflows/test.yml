@@ -19,3 +19,4 @@ jobs:
       run: |
         make
         ./hello
+        make clean
