@@ -16,4 +16,7 @@ jobs:
     - name: make
       run: make
     - name: run hello
-      run: ./hello
+      run: 
+        ./hello
+        make clean
+      
