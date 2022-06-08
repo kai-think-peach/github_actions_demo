@@ -16,8 +16,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: linux and mac build
+      #多个条件判断需要使用${{}}
       if: ${{matrix.os=='ubuntu-latest' || matrix.os=='macos-latest'}}
+      #d多条命令需要使用"|"
       run: |
         make
         ./hello
         make clean
+    - name: windows build
+      if: matrix.os=='windows-latest'
+      run: |
+        echo "github.workspace is ${{github.workspace}}"
+        ls ${{github.workspace}}
+    
