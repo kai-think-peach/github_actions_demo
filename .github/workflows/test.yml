@@ -8,7 +8,6 @@ on:
 
 jobs:
   job1:
-    name: build hello.py
     strategy:
       matrix:
         os: [windows-latest,ubuntu-latest,macos-latest]
@@ -21,20 +20,19 @@ jobs:
       run:
         python hello.py
   job2:
-    name: build hello.cpp
     strategy:
       matrix:
         os: [windows-latest,ubuntu-latest,macos-latest]
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2
-    - name: windows build 
+    - name: windows build hello.cpp
       if: matrix.os=='windows-latest'
       run: |
         make
         echo "执行./hello.exe"
         ./hello.exe
-    - name: linux and mac build
+    - name: linux or mac build hello.cpp
       #多个条件判断需要使用${{}}
       if: ${{matrix.os=='ubuntu-latest' || matrix.os=='macos-latest'}}
       #d多条命令需要使用"|"
