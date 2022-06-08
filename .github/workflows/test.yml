@@ -1,16 +1,18 @@
-/name: C/C++ CI
+name: C/C++ CI
 
 on:
- push:
-  branches: [ main ]
+  push:
+    branches: [ main ]
 jobs:
- build-and-test:
-  runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v2
-   - name: configure
+  build-and-test:
+    runs-on: ubuntu-latest
+		
+	steps:
+  - uses: actions/checkout@v2
+  - name: configure
     run: ./configure
-   - name: make
+  - name: make
     run: make
-   - name: run hello.cpp
-   run: ./hello
+  - name: run hello.cpp
+    run: ./hello
+
