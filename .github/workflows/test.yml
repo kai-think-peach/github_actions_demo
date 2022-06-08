@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: linux and mac build
-      if: matrix.os==ubuntu-latest || matrix.os==macos-latest
+      if: matrix.os==ubuntu-latest
       run: 
         make
         ./hello
