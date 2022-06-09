@@ -12,6 +12,7 @@ jobs:
     - uses: bazelbuild/setup-bazelisk@v1
     - run: |
         ls
+        echo "hello"
 
         
     
