@@ -6,7 +6,7 @@ on:
 
 jobs:
   job1:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: checkout
@@ -18,7 +18,6 @@ jobs:
         cd .\bazel_demo\stage1\
         ls
         bazel build //main:hello
-        cd .\bazel-bin\main
-        ./hello.exe
+        ls
         
     
