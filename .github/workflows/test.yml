@@ -14,7 +14,7 @@ jobs:
         cd bazel_demo/stage1
         bazel build //main:hello
         ls
-        cd bazel-bin
+        cd bazel-bin/main
         ls
         ./hello
 
