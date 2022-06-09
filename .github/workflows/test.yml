@@ -13,6 +13,7 @@ jobs:
       run: echo "hello"
     - uses: ngalaiko/bazel-action/2.0.0@master
     - name: bazel build test
-      run: echo "hello"
+      run: | 
+        echo ${{ github.workspace }}
         
     
