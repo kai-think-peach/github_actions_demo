@@ -2,7 +2,7 @@ name: github actions demo
 
 on:
   push:
-    branches: [ main ]
+    branches: [ bazel_demo ]
 
 jobs:
   job1:
@@ -12,7 +12,7 @@ jobs:
     - name: bazel build test
       uses: ngalaiko/bazel-action/2.0.0@master
       with: 
-        args: build //
+        #args: build //
         run: |
           echo ${{github.workspace}}
         
