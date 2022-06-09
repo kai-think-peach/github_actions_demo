@@ -8,9 +8,10 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - uses: |
-        actions/checkout@v2
-        ngalaiko/bazel-action/2.0.0@master
+    - uses: actions/checkout@v2
+    - name: checkout
+      run: echo "hello"
+    - uses: ngalaiko/bazel-action/2.0.0@master
     - name: bazel build test
       run: echo "hello"
         
