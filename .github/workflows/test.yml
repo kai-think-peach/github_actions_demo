@@ -8,12 +8,11 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: |
+        actions/checkout@v2
+        ngalaiko/bazel-action/2.0.0@master
     - name: bazel build test
-      uses: ngalaiko/bazel-action/2.0.0@master
-      with: 
-        #args: build //
-        run: |
-          echo ${{github.workspace}}
+      run: |
+        echo ${{github.workspace}}
         
     
