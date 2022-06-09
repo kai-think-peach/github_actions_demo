@@ -9,11 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: checkout
-      run: echo "hello"
-    - uses: ngalaiko/bazel-action/2.0.0@master
-    - name: bazel build test
-      run: | 
+    - uses: bazelbuild/setup-bazelisk@v1
+    - run: | 
         #echo ${{ github.workspace }}
         cd .\bazel_demo\stage1\
         ls
