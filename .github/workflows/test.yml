@@ -13,6 +13,7 @@ jobs:
     - run: |
         cd bazel_demo/stage1
         bazel build //main:hello
+        ls
 
         
     
