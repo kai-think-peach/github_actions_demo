@@ -40,3 +40,4 @@ jobs:
         make
         echo "执行./hello"
         ./hello
+      # end
