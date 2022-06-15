@@ -7,7 +7,7 @@ on:
 
 jobs:
   job1:
-    uses: kai-think-peach/github_actions_demo/.github/workflows/called-workflow.yml@v1
+    uses: kai-think-peach/github_actions_demo/.github/workflows/called-workflow.yml@main
 
   job2:
     runs-on: ubuntu-latest
